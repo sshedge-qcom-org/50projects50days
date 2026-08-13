@@ -61,6 +61,12 @@ This is the main repository for all of the projects in the course.
 
 **NOTE ON PULL REQUESTS**: All of these projects are part of the course. While I do appreciate people trying to make some things prettier or adding new features, we are only accepting pull requests and looking at issues for bug fixes so that the code stays inline with the course
 
+## Project Guides
+
+Detailed learning-focused build guides for individual projects:
+
+- [Expanding Cards](expanding-cards/README.md) — Click-to-expand image panels using Flexbox, CSS transitions, and DOM class toggling.
+
 ## License
 
 The MIT License
