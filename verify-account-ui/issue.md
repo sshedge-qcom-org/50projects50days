@@ -1,5 +1,7 @@
 # Issue: Boundary crashes and Spacebar accepted as a digit
 
+**Status:** Fixed in commit `8bc32e0`.
+
 **Where:** `script.js:5-13`
 
 **Problem:**
