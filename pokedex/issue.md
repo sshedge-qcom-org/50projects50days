@@ -1,5 +1,7 @@
 # Issue: Malformed sprite `<img>` tag (stray extra quote)
 
+**Status:** Fixed in commit `2673b33`.
+
 **Where:** `script.js:50`
 
 **Problem:**
