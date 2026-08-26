@@ -1,9 +1,11 @@
 # Issue: Label position isn't set until the first drag
 
+**Status:** Fixed in commit `6547f84`.
+
 **Where:** `script.js` (`input` event handler) and `style.css:42`
 
 **Problem:**
-The value label's position is only calculated and applied inside the slider's `input` event handler — it never runs until the user actually drags the slider:
+The value label's position was only calculated and applied inside the slider's `input` event handler — it never ran until the user actually dragged the slider:
 ```js
 range.addEventListener('input', (e) => {
     // ...calculates `left` from the slider value...
@@ -11,17 +13,21 @@ range.addEventListener('input', (e) => {
     label.innerHTML = value
 })
 ```
-On page load, the label sits at whatever `style.css` hardcodes — `left: 110px;` — which only looks correct because the slider's default value happens to be `50`. If the default `value`/`min`/`max` ever changed, the label would render in the wrong spot until the first interaction.
+On page load, the label sat at whatever `style.css` hardcodes — `left: 110px;` — which only looked correct because the slider's default value happens to be `50`. If the default `value`/`min`/`max` ever changed, the label would render in the wrong spot until the first interaction.
 
 **Solution:**
-Extract the positioning logic into a named function and call it once on load, in addition to on every `input` event:
+Extracted the positioning logic into a named `updateLabel()` function and called it once on load, in addition to on every `input` event:
 ```js
+range.addEventListener('input', (e) => updateLabel(e.target))
+
 function updateLabel(target) {
     // ...same calculation as before...
     label.style.left = `${left}px`
     label.innerHTML = value
 }
 
-range.addEventListener('input', (e) => updateLabel(e.target))
+const scale = (num, in_min, in_max, out_min, out_max) => { /* ... */ }
+
 updateLabel(range)
 ```
+Note: the initial `updateLabel(range)` call has to come *after* `scale` is defined — `scale` is a `const`, and calling `updateLabel` before that line executes would hit it while still in the temporal dead zone and throw.
