@@ -7,28 +7,34 @@ getData()
 filter.addEventListener('input', (e) => filterData(e.target.value))
 
 async function getData() {
-    const res = await fetch('https://randomuser.me/api?results=50')
+    try {
+        const res = await fetch('https://randomuser.me/api?results=50')
 
-    const { results } = await res.json()
+        if(!res.ok) throw new Error(`Request failed: ${res.status}`)
 
-    // Clear result
-    result.innerHTML = ''
+        const { results } = await res.json()
 
-    results.forEach(user => {
-        const li = document.createElement('li')
+        // Clear result
+        result.innerHTML = ''
 
-        listItems.push(li)
+        results.forEach(user => {
+            const li = document.createElement('li')
 
-        li.innerHTML = `
-            <img src="${user.picture.large}" alt="${user.name.first}">
-            <div class="user-info">
-                <h4>${user.name.first} ${user.name.last}</h4>
-                <p>${user.location.city}, ${user.location.country}</p>
-            </div>
-        `
+            listItems.push(li)
 
-        result.appendChild(li)
-    })
+            li.innerHTML = `
+                <img src="${user.picture.large}" alt="${user.name.first}">
+                <div class="user-info">
+                    <h4>${user.name.first} ${user.name.last}</h4>
+                    <p>${user.location.city}, ${user.location.country}</p>
+                </div>
+            `
+
+            result.appendChild(li)
+        })
+    } catch(err) {
+        result.innerHTML = '<li><h3>Failed to load users. Please try again later.</h3></li>'
+    }
 }
 
 function filterData(searchTerm) {
