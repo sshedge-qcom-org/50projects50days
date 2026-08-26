@@ -1,5 +1,7 @@
 # Issue: `index.html` links a `style.css` that doesn't exist
 
+**Status:** Fixed in commit `9281738`.
+
 **Where:** `index.html:6`
 
 **Problem:**
