@@ -1,5 +1,7 @@
 # Issue: No error handling around the `fetch` call
 
+**Status:** Fixed in commit `e01351e`.
+
 **Where:** `script.js` — `getData()`
 
 **Problem:**
