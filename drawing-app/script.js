@@ -1,7 +1,7 @@
 const canvas = document.getElementById('canvas');
 const increaseBtn = document.getElementById('increase');
 const decreaseBtn = document.getElementById('decrease');
-const sizeEL = document.getElementById('size');
+const sizeEl = document.getElementById('size');
 const colorEl = document.getElementById('color');
 const clearEl = document.getElementById('clear');
 
@@ -58,7 +58,7 @@ function drawLine(x1, y1, x2, y2) {
 }
 
 function updateSizeOnScreen() {
-    sizeEL.innerText = size
+    sizeEl.innerText = size
 }
 
 increaseBtn.addEventListener('click', () => {
