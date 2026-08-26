@@ -1,5 +1,7 @@
 # Issue: Timer can't be restarted after it finishes
 
+**Status:** Fixed in commit `97e84e1`.
+
 **Where:** `script.js:12` and the `run()` / `resetAll()` functions
 
 **Problem:**
