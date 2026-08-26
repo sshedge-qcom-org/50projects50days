@@ -1,5 +1,7 @@
 # Issue: Search appends a stray `"` to every query
 
+**Status:** Fixed in commit `bd4020d`.
+
 **Where:** `script.js:3`
 
 **Problem:**
