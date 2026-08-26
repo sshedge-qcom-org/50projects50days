@@ -1,5 +1,7 @@
 # Issue: Midnight displays as `0` instead of `12`
 
+**Status:** Fixed in commit `1ca1262`.
+
 **Where:** `script.js:28`
 
 **Problem:**
