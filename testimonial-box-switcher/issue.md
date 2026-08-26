@@ -1,5 +1,7 @@
 # Issue: `testimonialsContainer` selector doesn't match the HTML
 
+**Status:** Fixed in commit `74bfc93`.
+
 **Where:** `script.js:1`
 
 **Problem:**
