@@ -1,5 +1,7 @@
 # Issue: `index.html` loads a `script.js` that doesn't exist
 
+**Status:** Fixed in commit `9d39d25`.
+
 **Where:** `index.html:12`
 
 **Problem:**
