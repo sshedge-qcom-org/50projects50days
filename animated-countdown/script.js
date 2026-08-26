@@ -36,5 +36,4 @@ function runAnimation() {
 
 replay.addEventListener('click', () => {
   resetDOM()
-  runAnimation()
 })
