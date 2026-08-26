@@ -7,7 +7,7 @@ This is the main repository for all of the projects in the course.
 
 |  #  | Project                                                                                                                     | Live Demo                                                                         | Guide                              |
 | :-: | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ---------------------------------- |
-| 01  | [Expanding Cards](https://github.com/sshedge-qcom-org/50projects50days/tree/master/expanding-cards)                             | [Live Demo](https://50projects50days.com/projects/expanding-cards/)               | [Guide](expanding-cards/README.md) |
+| 01  | [Expanding Cards](https://github.com/sshedge-qcom-org/50projects50days/tree/master/expanding-cards)                             | [Live Demo](https://50projects50days.com/projects/expanding-cards/)               | —                                  |
 | 02  | [Progress Steps](https://github.com/sshedge-qcom-org/50projects50days/tree/master/progress-steps)                               | [Live Demo](https://50projects50days.com/projects/progress-steps/)                | —                                  |
 | 03  | [Rotating Navigation Animation](https://github.com/sshedge-qcom-org/50projects50days/tree/master/rotating-nav-animation)        | [Live Demo](https://50projects50days.com/projects/rotating-navigation-animation/) | —                                  |
 | 04  | [Hidden Search Widget](https://github.com/sshedge-qcom-org/50projects50days/tree/master/hidden-search)                          | [Live Demo](https://50projects50days.com/projects/hidden-search-widget/)          | —                                  |
@@ -60,12 +60,6 @@ This is the main repository for all of the projects in the course.
 | 51  | [Simple Timer](https://github.com/sshedge-qcom-org/50projects50days/tree/master/simple-timer)                                   | [Live Demo](https://50projects50days.com/projects/simple-timer/)                  | —                                  |
 
 **NOTE ON PULL REQUESTS**: All of these projects are part of the course. While I do appreciate people trying to make some things prettier or adding new features, we are only accepting pull requests and looking at issues for bug fixes so that the code stays inline with the course
-
-## Project Guides
-
-Detailed learning-focused build guides for individual projects:
-
-- [Expanding Cards](expanding-cards/README.md) — Click-to-expand image panels using Flexbox, CSS transitions, and DOM class toggling.
 
 ## License
 

@@ -2,64 +2,54 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Running Projects
+## What this is
 
-No build system, no npm, no compilation. Every project runs directly in the browser:
+A local clone of the Traversy Media "50 Projects in 50 Days" course: 51 independent, vanilla HTML/CSS/JS front-end mini-projects, numbered 01–51 in the table in the root `README.md` alongside a link to each project's folder and its hosted live demo at 50projects50days.com.
 
-- Open `<project-folder>/index.html` directly in a browser, or
-- Use VS Code Live Server (right-click `index.html` → "Open with Live Server")
+## Running a project
 
-There are no dependencies to install.
+There is no build system, package manager, or install step anywhere in this repo (no `package.json` at the root or in any project folder).
 
-## Repository Structure
+- Open `<project-folder>/index.html` directly in a browser, **or**
+- Use the VS Code "Live Server" extension (right-click `index.html` → "Open with Live Server") for auto-reload on save.
 
-51 standalone vanilla HTML/CSS/JS mini-projects from the Traversy Media "50 Projects in 50 Days" course. Each project is completely self-contained:
+No test runner or linter is configured. Don't assume npm scripts, test files, or lint configs exist — check before referencing them.
+
+## Repository structure
+
+Every project lives in its own top-level folder and is fully self-contained:
 
 ```
 <project-folder>/
-├── index.html   # all markup
-├── style.css    # all styles and animations
-└── script.js    # all DOM logic
+├── index.html   # markup
+├── style.css    # styling/animation
+└── script.js    # DOM logic
 ```
 
-No files are shared across projects. `_project_starter_/` is the blank template to copy when adding a new project.
+Nothing is shared across project folders — no shared components, utilities, or asset directories at the repo root. When adding a new project, copy `_project_starter_/` (a bare `index.html` wired to an empty `style.css`/`script.js`) rather than copying another project, then add a row to the table in the root `README.md`.
 
-## Technology Stack
+A handful of projects deviate from the standard 3-file layout — check before assuming all three files exist:
+- `kinetic-loader/` has no `script.js` (pure CSS animation)
+- `event-keycodes/` ships an extra `dark-style.css`
+- `split-landing-page/` bundles local `.jpg` assets alongside its three files
+- `custom-range-slider/` has a leftover `.vscode/settings.json`
 
-- Pure HTML5, CSS3, ES6+ JavaScript — no frameworks, no TypeScript, no preprocessors
-- External fonts via CSS `@import` from Google Fonts (per-project, not shared)
-- Remote images via Unsplash CDN URLs
-- Projects that fetch data use the native `fetch` API with `async/await`: `dad-jokes`, `github-profiles`, `movie-app`, `pokedex`, `live-user-filter`
-- `notes-app` and `todo-list` use `localStorage` for persistence
-- `drawing-app` uses the Canvas 2D API
+## Technology stack
 
-## GOAL.md
+Vanilla HTML5, CSS3, and ES6+ JavaScript by default — no frameworks, no TypeScript, no preprocessors, no bundlers. Three projects are exceptions that pull in one library via a CDN `<script>` tag (not npm):
+- `github-profiles` — axios, for the GitHub API
+- `notes-app` — marked.js, to render markdown
+- `simple-timer` — Tailwind CDN, for styling
 
-`GOAL.md` is an AI system prompt — a template used to generate learning-focused per-project README files. It defines a 17-section README format, teaching philosophy, and anti-hallucination rules for an AI authoring assistant. It is not a project goal document.
+Browser-API usage worth knowing before touching these projects:
+- `fetch` + `async`/`await`: `dad-jokes`, `movie-app`, `pokedex`, `live-user-filter`
+- `localStorage` persistence: `notes-app`, `todo-list`
+- Canvas 2D API: `drawing-app`
 
-To generate a README for a project, fill in the PROJECT VARIABLES block at the top of `GOAL.md` and pass the whole file as a prompt to an AI assistant.
+## Root README.md
 
-## Project README Guides
+`README.md` is the course index: a table mapping each project number to its folder link and live demo, plus a "Project Guides" section for optional deeper per-project write-ups. Keep new rows consistent with the existing column format if you add a project.
 
-Learning-focused build guides live at `<project-folder>/README.md`. One guide has been written so far (`expanding-cards`); the remaining 50 are pending.
+The project/demo links in `README.md` point to `github.com/sshedge-qcom-org/50projects50days`, which differs from the configured git `origin` remote (`github.com/surajnetflix/50projects50days`) — confirm which is intended before treating them as interchangeable, e.g. when opening a PR.
 
-**Process for generating a guide:**
-1. Read the project's `index.html`, `style.css`, and `script.js`
-2. Follow `GOAL.md` — fill its PROJECT VARIABLES block, then generate the 17-section README
-3. Write the output to `<project-folder>/README.md`
-4. Add a bullet under `## Project Guides` in the root `README.md`
-5. Update the `Guide` column in the root README table with a relative link
-
-**Key GOAL.md mandates (enforce these in every guide):**
-- Three-layer HTML/CSS/JS Mental Model table (Section 3)
-- Collapsible `<details>` prerequisites with HTML/CSS/JS sub-sections and tiny code examples
-- Name JS paradigms explicitly: event-driven programming, the DOM, `querySelector` vs `querySelectorAll` comparison table
-- "Why This Approach?" blocks comparing concrete alternatives (e.g. `classList.add` vs `className =`)
-- Minimum 5 debugging mistakes in a collapsible `<details>` block
-- Next-projects table with a "New Concepts Introduced" column (4–5 projects)
-
-## Repository Remote
-
-`https://github.com/sshedge-qcom-org/50projects50days.git`
-
-All GitHub links in `README.md` use `sshedge-qcom-org/50projects50days` (not the upstream bradtraversy fork).
+The README also notes that only bug-fix PRs are accepted for the course code; stylistic or feature PRs are not being merged upstream.
