@@ -1,5 +1,7 @@
 # Issue: Typo'd title, and the Password label points at the Email field
 
+**Status:** Fixed in commit `998d4aa`.
+
 **Where:** `index.html:13` and `index.html:31`
 
 **Problem:**
